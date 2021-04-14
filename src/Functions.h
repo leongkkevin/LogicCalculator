@@ -17,6 +17,8 @@ public:
     Functions();
 
     void readFile(string);
+
+    bool parseStatement(string);
 };
 
 
