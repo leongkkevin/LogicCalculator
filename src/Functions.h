@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -16,9 +17,9 @@ private:
 public:
     Functions();
 
-    void readFile(string);
+    void readFile(string&);
 
-    bool parseStatement(string);
+    vector<string> parseStatement(string&);
 };
 
 

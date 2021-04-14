@@ -3,12 +3,18 @@
 //
 
 #include <iostream>
+#include <string>
+#include "Functions.h"
 
 using namespace std;
 
 int main(int argc, char** argv){
-    string file = argv[1];
+    //string file = argv[1];
     Functions* f = new Functions();
-    f->readFile(file);
+    //f->readFile(file);
+    string statement = "(a -> b)";
+    vector<string> statements = f->parseStatement(statement);
+    for (int i = 0; i < statements.size(); i++)
+        cout << statements.at(i) << endl;
 }
 
