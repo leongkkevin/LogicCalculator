@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.cpp" "/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug/CMakeFiles/LogicCalculator.dir/src/Functions.cpp.o"
-  "/Users/kevinleong/Documents/GitHub/LogicCalculator/src/main.cpp" "/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug/CMakeFiles/LogicCalculator.dir/src/main.cpp.o"
+  "/tmp/tmp.pmOczAuIN9/src/Functions.cpp" "/tmp/tmp.pmOczAuIN9/cmake-build-debug/CMakeFiles/LogicCalculator.dir/src/Functions.cpp.o"
+  "/tmp/tmp.pmOczAuIN9/src/main.cpp" "/tmp/tmp.pmOczAuIN9/cmake-build-debug/CMakeFiles/LogicCalculator.dir/src/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -3,3 +3,13 @@
 //
 
 #include "Functions.h"
+#include <iostream>
+#include <fstream>
+
+Functions::Functions() {
+
+}
+
+void Functions::readFile(string fileName) {
+    ifstream file(fileName);
+}
