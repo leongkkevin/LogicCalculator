@@ -9,10 +9,24 @@
 /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.cpp
 Functions.h
 /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
+iostream
+-
+fstream
+-
 
 /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
-
-/Users/kevinleong/Documents/GitHub/LogicCalculator/src/main.cpp
 iostream
+-
+string
+-
+vector
+-
+Statement.h
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
+
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
+vector
+-
+string
 -
 

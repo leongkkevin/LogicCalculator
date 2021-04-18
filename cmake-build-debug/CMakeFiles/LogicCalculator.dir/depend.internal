@@ -4,5 +4,11 @@
 CMakeFiles/LogicCalculator.dir/src/Functions.cpp.o
  /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.cpp
  /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
+ /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
+CMakeFiles/LogicCalculator.dir/src/Statement.cpp.o
+ /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.cpp
+ /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
 CMakeFiles/LogicCalculator.dir/src/main.cpp.o
+ /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
+ /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
  /Users/kevinleong/Documents/GitHub/LogicCalculator/src/main.cpp

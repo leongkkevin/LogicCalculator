@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "Statement.h"
+
 using namespace std;
 
 class Functions {
@@ -20,6 +22,8 @@ public:
     void readFile(string&);
 
     vector<string> parseStatement(string&);
+
+    void makeTables(vector<string> statement);
 };
 
 

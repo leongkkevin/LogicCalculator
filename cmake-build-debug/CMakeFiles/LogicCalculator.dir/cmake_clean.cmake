@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LogicCalculator.dir/src/Functions.cpp.o"
+  "CMakeFiles/LogicCalculator.dir/src/Statement.cpp.o"
   "CMakeFiles/LogicCalculator.dir/src/main.cpp.o"
   "LogicCalculator"
   "LogicCalculator.pdb"

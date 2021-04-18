@@ -32,5 +32,19 @@ vector<string> Functions::parseStatement(string& line) {
 
         statements.push_back(temp);
     }
+
+    for(int i = 0; i < statements.size(); ++i){
+        if(statements[i] == "->"){
+            string newStatement;
+            newStatement = statements[i - 1] + statements[i] + statements[i+1];
+            statements.push_back(newStatement);
+        }
+    }
     return statements;
+}
+
+void Functions::makeTables(vector<string> statement) {
+    for(int i = 0; i < statement.size(); ++i){
+        statement[i];
+    }
 }
