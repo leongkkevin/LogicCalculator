@@ -24,6 +24,10 @@ public:
     vector<string> parseStatement(string&);
 
     void makeTables(vector<string> statement);
+
+    bool isChar(string);
+
+    bool isSimple(string);
 };
 
 

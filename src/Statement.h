@@ -12,6 +12,7 @@ using namespace std;
 
 class Statement {
 private:
+    vector<char> variables;
     vector<vector<int>> table;
     string name;
 
