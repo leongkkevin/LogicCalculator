@@ -16,8 +16,7 @@ void Functions::readFile(string& fileName) {
 /*
  * Iterative version of the parseStatement function, only goes up to "complex statements", i.e. "(a^b)->(cvd)"
  * An idea for the recursive version is some way to generalize the isChar and isSimple functions, maybe just using
- * length, or always parsing for certain characters in any statement that should be skipped over. In any case,
- * the only thing I haven't done here is handled for insignificant characters in the vector.
+ * length, or always parsing for certain characters in any statement that should be skipped over. 
  */
 vector<string> Functions::parseStatement(string& line) {
     vector<string> statements;
@@ -76,6 +75,13 @@ vector<string> Functions::parseStatement(string& line) {
         }
     }
 
+    // remove insignificant characters
+    for (int i = 0; i < simpleStatementIndex; i++)
+        if ((statements[i].size() == 1 || statements[i].size() == 2) && !isChar(statements[i])) {
+            statements.erase(statements.begin() + i);
+            i--;
+        }
+
     return statements;
 }
 
@@ -86,7 +92,7 @@ void Functions::makeTables(vector<string> statement) {
 }
 
 bool Functions::isChar(string thing) {
-    return (thing.size() < 2 && thing[0] >= 97 && thing[0] <= 122);
+    return (thing.size() < 2 && thing[0] >= 97 && thing[0] <= 122 && thing[0] != 'v');
 }
 
 bool Functions::isSimple(string thing) {
