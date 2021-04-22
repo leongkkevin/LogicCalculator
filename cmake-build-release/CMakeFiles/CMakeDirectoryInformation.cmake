@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/Users/kevinleong/Documents/GitHub/LogicCalculator")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-release")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

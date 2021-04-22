@@ -7,9 +7,7 @@
 #include <iostream>
 #include <fstream>
 
-Functions::Functions() {}
-
-void Functions::readFile(string& fileName) {
+void readFile(string& fileName) {
     ifstream file(fileName);
 }
 
@@ -18,7 +16,7 @@ void Functions::readFile(string& fileName) {
  * An idea for the recursive version is some way to generalize the isChar and isSimple functions, maybe just using
  * length, or always parsing for certain characters in any statement that should be skipped over. 
  */
-vector<string> Functions::parseStatement(string& line) {
+vector<string> parseStatement(string& line) {
     vector<string> statements;
 
     // loop through a single line and push back individual characters
@@ -85,16 +83,17 @@ vector<string> Functions::parseStatement(string& line) {
     return statements;
 }
 
-void Functions::makeTables(vector<string> statement) {
-    for(int i = 0; i < statement.size(); ++i){
-        statement[i];
-    }
-}
-
-bool Functions::isChar(string thing) {
+bool isChar(string thing) {
     return (thing.size() < 2 && thing[0] >= 97 && thing[0] <= 122 && thing[0] != 'v');
 }
 
-bool Functions::isSimple(string thing) {
+bool isSimple(string thing) {
     return (thing.size() > 2 && thing.size() < 5);
+}
+
+void makeTables(vector<string> statement) {
+    vector<Statement> stateVect;
+    for(int i = 0; i < statement.size(); ++i){
+        stateVect.push_back(Statement(statement[i]));
+    }
 }

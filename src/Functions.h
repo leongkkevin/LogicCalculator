@@ -13,22 +13,15 @@
 
 using namespace std;
 
-class Functions {
-private:
+void makeTables(vector<string> statement);
 
-public:
-    Functions();
+void readFile(string&);
 
-    void readFile(string&);
+vector<string> parseStatement(string&);
 
-    vector<string> parseStatement(string&);
+bool isChar(string);
 
-    void makeTables(vector<string> statement);
-
-    bool isChar(string);
-
-    bool isSimple(string);
-};
+bool isSimple(string);
 
 
 #endif //LOGICCALCULATOR_FUNCTIONS_H

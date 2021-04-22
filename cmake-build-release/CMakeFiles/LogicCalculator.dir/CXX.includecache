@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.cpp
+Functions.h
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
+Statement.h
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
+iostream
+-
+fstream
+-
+
 /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Functions.h
 iostream
 -
@@ -13,6 +23,10 @@ string
 -
 vector
 -
+Statement.h
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
+
+/Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.cpp
 Statement.h
 /Users/kevinleong/Documents/GitHub/LogicCalculator/src/Statement.h
 

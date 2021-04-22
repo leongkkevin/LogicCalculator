@@ -1,3 +1,3 @@
-/tmp/tmp.pmOczAuIN9/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/tmp/tmp.pmOczAuIN9/cmake-build-debug/CMakeFiles/edit_cache.dir
-/tmp/tmp.pmOczAuIN9/cmake-build-debug/CMakeFiles/LogicCalculator.dir
+/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kevinleong/Documents/GitHub/LogicCalculator/cmake-build-debug/CMakeFiles/LogicCalculator.dir
