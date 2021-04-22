@@ -6,9 +6,53 @@
 #include "Statement.h"
 #include <iostream>
 #include <fstream>
+#include <set>
 
 void readFile(string& fileName) {
     ifstream file(fileName);
+}
+
+string getComplex(vector<string> &complexStats, vector<char> &charVect, int index){
+    string returnStatement;
+    for(int i = index; i < charVect.size(); ++i){
+        if(charVect[i] == '('){
+            string paranthStr = getComplex(complexStats, charVect, i + 1);
+            charVect[i] = '[';
+            complexStats.push_back(paranthStr);
+            paranthStr.clear();
+        }
+        if(charVect[i] == ')'){
+            string op;
+//            if(charVect[i+2] == '-'){
+//                op += charVect[i+2];
+//                op += charVect[i+3];
+//                complexStats.push_back(op);
+//            } else if(charVect[i+2] == '^' || charVect[i+2] == 'v'){
+//                op += charVect[i+2];
+//                complexStats.push_back(op);
+//            }
+            charVect[i] = ']';
+            return returnStatement;
+        }
+        returnStatement += charVect[i];
+    }
+    complexStats.push_back(returnStatement);
+    return returnStatement;
+}
+void parse2(vector<string> &statements, string& line){
+    set<char> simple;
+    vector<char> allChar;
+    for(int i = 0; i < line.size(); ++i){
+        if(isalpha(line[i]) && line[i] != 'v'){
+            simple.insert(line[i]);
+        }
+        allChar.push_back(line[i]);
+    }
+
+    vector<string> complexStatements;
+    getComplex(complexStatements, allChar, 0);
+    cout << endl;
+
 }
 
 /*

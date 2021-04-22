@@ -17,6 +17,7 @@ void makeTables(vector<string> statement);
 
 void readFile(string&);
 
+void parse2(vector<string> &statements, string& line);
 vector<string> parseStatement(string&);
 
 bool isChar(string);
