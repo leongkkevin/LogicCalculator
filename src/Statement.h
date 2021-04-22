@@ -5,24 +5,24 @@
 #ifndef LOGICCALCULATOR_STATEMENT_H
 #define LOGICCALCULATOR_STATEMENT_H
 
+#include <iostream>
 #include <vector>
 #include <string>
+#include <map>
+#include <math.h>
 
 using namespace std;
 
 class Statement {
 private:
-    vector<char> variables;
-    vector<vector<int>> table;
+    map<char, vector<int>>* table;
     string name;
 
 public:
     Statement() = default;
     Statement(string name);
-    void createTable();
-
-
-
+    void createTable(vector<char>&);
+    void printChars();
 
 };
 
