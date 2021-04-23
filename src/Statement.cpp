@@ -48,3 +48,12 @@ void Statement::printChars() {
         cout << endl;
     }
 }
+
+string Statement::getName() const { return name; }
+
+bool Statement::operator<(const Statement& other) const {
+    return this->name.size() - other.getName().size() < 0;
+}
+bool Statement::operator==(const Statement& other) const {
+    return this->name.size() == other.getName().size();
+}

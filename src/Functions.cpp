@@ -51,6 +51,8 @@ void parse2(vector<string> &statements, string& line){
 
     vector<string> complexStatements;
     getComplex(complexStatements, allChar, 0);
+    for (int i = 0; i < complexStatements.size(); i++)
+        cout << complexStatements[i] << endl;
     cout << endl;
 
 }

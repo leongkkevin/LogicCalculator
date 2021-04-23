@@ -24,6 +24,10 @@ public:
     void createTable(vector<char>&);
     void printChars();
 
+    string getName() const;
+
+    bool operator<(const Statement&) const;
+    bool operator==(const Statement&) const;
 };
 
 
