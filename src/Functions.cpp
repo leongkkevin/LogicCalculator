@@ -137,9 +137,34 @@ bool isSimple(string thing) {
     return (thing.size() > 2 && thing.size() < 5);
 }
 
-void makeTables(vector<string> statement) {
-    vector<Statement> stateVect;
-    for(int i = 0; i < statement.size(); ++i){
-        stateVect.push_back(Statement(statement[i]));
+void makeTable(map<Statement, vector<int>>& statements, int numVars) {
+    for (auto& itr : statements) {
+        // if the statement is a variable
+        if (itr.first.getName().size() == 1)
+            makeChars(itr.second, numVars);
+
+        // handle for the complex statements here (not implemented yet)
+    }
+}
+
+void makeChars(vector<int>& yesNo, int numVars) {
+    // create the unchanging variable for size since I need to check it for the table
+    int size = numVars;
+
+    // iterate through all the characters in the other vector
+    for (int i = 1; i <= size; i++) {
+        // integer to flip between 1 and 0
+        int binary = 1;
+
+        // this loop is the number of times it prints the 10 pair
+        for (int j = 0; j < pow(2, i); j++) {
+            // this loop is the number of 1s and 0s per pair
+            for (int k = 0; k < pow(2, size - i); k++)
+                yesNo.push_back(binary);
+
+            // flip the binary
+            binary++;
+            binary %= 2;
+        }
     }
 }

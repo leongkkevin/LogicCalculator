@@ -15,14 +15,12 @@ using namespace std;
 
 class Statement {
 private:
-    map<char, vector<int>>* table;
     string name;
+    vector<int>* column;
 
 public:
     Statement() = default;
     Statement(string name);
-    void createTable(vector<char>&);
-    void printChars();
 
     string getName() const;
 

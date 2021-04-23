@@ -13,7 +13,9 @@
 
 using namespace std;
 
-void makeTables(vector<string> statement);
+void makeTable(map<Statement, vector<int>>&, int);
+
+void makeChars(vector<int>&, int);
 
 void readFile(string&);
 
