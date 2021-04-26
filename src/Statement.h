@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <map>
 #include <math.h>
 
@@ -16,13 +17,17 @@ using namespace std;
 class Statement {
 private:
     string name;
-    vector<int>* column;
+    vector<string>* statement;
 
 public:
     Statement() = default;
     Statement(string name);
 
+    void addStatement(string);
+
     string getName() const;
+
+    vector<string>* getStatement();
 
     bool operator<(const Statement&) const;
     bool operator==(const Statement&) const;

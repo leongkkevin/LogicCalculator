@@ -13,18 +13,31 @@
 
 using namespace std;
 
-void makeTable(map<Statement, vector<int>>&, int);
+class Functions {
+private:
+    map<Statement, vector<int>*>* statements;
+public:
+Functions();
 
-void makeChars(vector<int>&, int);
+void makeTable(int);
+
+void makeChars(vector<int>*, int, int);
+
+void printTable();
+
+void addStatements(map<Statement, vector<int>*>*);
 
 void readFile(string&);
 
 void parse2(vector<string> &statements, string& line);
+
+string getComplex(vector<string>&, vector<char>&, int);
+
 vector<string> parseStatement(string&);
 
 bool isChar(string);
 
 bool isSimple(string);
-
+};
 
 #endif //LOGICCALCULATOR_FUNCTIONS_H

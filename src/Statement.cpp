@@ -6,14 +6,29 @@
 
 Statement::Statement(string name) {
     this->name = name;
-    this->column = new vector<int>();
+    this->statement = new vector<string>();
+}
+
+void Statement::addStatement(string statement) {
+    this->statement->push_back(statement);
 }
 
 string Statement::getName() const { return name; }
 
+vector<string>* Statement::getStatement() { return statement; }
+
 bool Statement::operator<(const Statement& other) const {
-    return this->name.size() - other.getName().size() < 0;
+    int thisLength = strlen(this->name.c_str());
+    int otherLength = strlen(other.getName().c_str());
+    if ((thisLength - otherLength < 0))
+        return true;
+    else if ((thisLength - otherLength > 0))
+        return false;
+    else
+        return strcmp(this->name.c_str(), other.getName().c_str()) < 0;
 }
+
 bool Statement::operator==(const Statement& other) const {
-    return this->name.size() == other.getName().size();
+    cout << "\"" << this->name << "\" against \"" << other.getName() << "\"" << endl;
+    return this->name == other.getName();
 }
