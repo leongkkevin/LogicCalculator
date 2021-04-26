@@ -260,3 +260,20 @@ void Functions::printTable() {
 void Functions::addStatements(map<Statement, vector<int>*>* statements) {
     this->statements = statements;
 }
+
+void Functions::outputFile(map<Statement, vector<int> *> &statementMap, ofstream &output) {
+    auto itr = statementMap.begin();
+    while(itr != statementMap.end()){
+        output << itr->first.getName() << ",";
+        ++itr;
+    }
+    output << endl;
+    for(int i = 0; i < statementMap.begin()->second->size(); ++i){
+        auto innerItr = statementMap.begin();
+        while(innerItr != statementMap.end()){
+            output << innerItr->second->at(i) << ",";
+            ++innerItr;
+        }
+        output << endl;
+    }
+}

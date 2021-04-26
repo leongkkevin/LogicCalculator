@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <fstream>
 
 #include "Statement.h"
 
@@ -39,6 +40,8 @@ vector<string> parseStatement(string&);
 bool isChar(string);
 
 bool isSimple(string);
+
+void outputFile(map<Statement, vector<int>*> &statementMap, ofstream &output);
 };
 
 #endif //LOGICCALCULATOR_FUNCTIONS_H
