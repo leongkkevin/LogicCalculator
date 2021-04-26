@@ -14,7 +14,8 @@ int main(int argc, char** argv){
     Functions* f = new Functions();
     string statement = "((a ^ c) -> (a -> b)) ^ ((c v d) -> (a v d)) -> (a -> c)";
     vector<string> statement2;
-    f->parse2(statement2, statement);
+    map<Statement, vector<int>> statementMap;
+    f->parse2(statementMap, statement);
 
     /*
     vector<string> statements = parseStatement(statement);
