@@ -165,6 +165,7 @@ void Functions::makeTable(int numVars) {
             bool gotFirst = false;
             bool gotSecond = false;
             cout << gotFirst << endl;
+            int index = 0;
             for (auto itr2 = statements->begin(); itr2 != statements->end();) {
                 string smallerStatement = itr2->first.getName();
                 if (strlen(smallerStatement.c_str()) > 3) {
@@ -173,15 +174,18 @@ void Functions::makeTable(int numVars) {
                 string biggerStatement = statement.getName();
                 double statementLength = strlen(biggerStatement.c_str());
                 int smallerStatementLength = strlen(smallerStatement.c_str());
-                if (statementLength/smallerStatementLength > 2) {
-                    string testString = statement.getName().substr(smallerStatementLength + 3, statementLength - smallerStatementLength - 3);
+                if (statementLength/smallerStatementLength > 1.2) {
+                    string testString = statement.getName().substr(index, statementLength - index);
                     if (joiner == "->")
-                        testString = statement.getName().substr(smallerStatementLength + 4, statementLength - smallerStatementLength - 4);
+                        testString = statement.getName().substr(index, statementLength - index);
                     if (!gotFirst && smallerStatement == statement.getName().substr(0, smallerStatementLength)) {
                         firstStatement = itr2->second;
                         joiner = statement.getName().substr(smallerStatementLength + 1, 1);
-                        if (joiner == "-")
+                        index = smallerStatementLength + 3;
+                        if (joiner == "-") {
                             joiner = statement.getName().substr(smallerStatementLength + 1, 2);
+                            index++;
+                        }
                         cout << "First: " << smallerStatement << endl;
                         cout << "Joiner: " << joiner << endl;
                         gotFirst = true;
@@ -201,6 +205,7 @@ void Functions::makeTable(int numVars) {
             }
 
             for (int i = 0; i < firstStatement->size(); i++) {
+                cout << firstStatement->at(i) << " " << secondStatement->at(i) << endl;
                 if (joiner == "^")
                     itr.second->push_back((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0);
                 else if (joiner == "v")
