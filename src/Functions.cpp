@@ -164,7 +164,6 @@ void Functions::makeTable(int numVars) {
             vector<int>* secondStatement;
             bool gotFirst = false;
             bool gotSecond = false;
-            cout << gotFirst << endl;
             int index = 0;
             for (auto itr2 = statements->begin(); itr2 != statements->end();) {
                 string smallerStatement = itr2->first.getName();
@@ -205,13 +204,19 @@ void Functions::makeTable(int numVars) {
             }
 
             for (int i = 0; i < firstStatement->size(); i++) {
-                cout << firstStatement->at(i) << " " << secondStatement->at(i) << endl;
-                if (joiner == "^")
+                cout << firstStatement->at(i) << " " << secondStatement->at(i);
+                if (joiner == "^") {
                     itr.second->push_back((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0);
-                else if (joiner == "v")
+                    cout << " " << ((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0) << endl;
+                }
+                else if (joiner == "v") {
                     itr.second->push_back((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0);
-                else if (joiner == "->")
+                    cout << " " << ((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0) << endl;
+                }
+                else if (joiner == "->") {
                     itr.second->push_back((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0);
+                    cout << " " << ((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0) << endl;
+                }
             }
         }
     }
