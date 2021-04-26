@@ -27,14 +27,6 @@ string Functions::getComplex(vector<string> &complexStats, vector<char> &charVec
         }
         if(charVect[i] == ')'){
             string op;
-//            if(charVect[i+2] == '-'){
-//                op += charVect[i+2];
-//                op += charVect[i+3];
-//                complexStats.push_back(op);
-//            } else if(charVect[i+2] == '^' || charVect[i+2] == 'v'){
-//                op += charVect[i+2];
-//                complexStats.push_back(op);
-//            }
             charVect[i] = ']';
             return returnStatement;
         }
@@ -43,22 +35,29 @@ string Functions::getComplex(vector<string> &complexStats, vector<char> &charVec
     complexStats.push_back(returnStatement);
     return returnStatement;
 }
-void Functions::parse2(vector<string> &statements, string& line){
+void Functions::parse2(map<Statement, vector<int>> &statementMap, string& line){
     set<char> simple;
     vector<char> allChar;
     for(int i = 0; i < line.size(); ++i){
         if(isalpha(line[i]) && line[i] != 'v'){
             simple.insert(line[i]);
+
+            string newStr;
+            newStr += line[i];
+            Statement newStatement(newStr);
+            vector<int> emptyVect;
+            statementMap.insert({newStatement, emptyVect});
         }
         allChar.push_back(line[i]);
     }
 
     vector<string> complexStatements;
     getComplex(complexStatements, allChar, 0);
-    for (int i = 0; i < complexStatements.size(); i++)
-        cout << complexStatements[i] << endl;
-    cout << endl;
-
+    for(int i = 0; i < complexStatements.size(); ++i){
+        Statement newStatement(complexStatements[i]);
+        vector<int> emptyVect;
+        statementMap.insert({newStatement, emptyVect});
+    }
 }
 
 /*
