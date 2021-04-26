@@ -7,6 +7,7 @@
 Statement::Statement(string name) {
     this->name = name;
     this->statement = new vector<string>();
+    this->column = new vector<int>();
 }
 
 void Statement::addStatement(string statement) {
@@ -16,6 +17,8 @@ void Statement::addStatement(string statement) {
 string Statement::getName() const { return name; }
 
 vector<string>* Statement::getStatement() { return statement; }
+
+vector<int>* Statement::getColumn() { return column; }
 
 bool Statement::operator<(const Statement& other) const {
     int thisLength = strlen(this->name.c_str());

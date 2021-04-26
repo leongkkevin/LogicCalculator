@@ -18,6 +18,7 @@ class Statement {
 private:
     string name;
     vector<string>* statement;
+    vector<int>* column;
 
 public:
     Statement() = default;
@@ -28,6 +29,8 @@ public:
     string getName() const;
 
     vector<string>* getStatement();
+
+    vector<int>* getColumn();
 
     bool operator<(const Statement&) const;
     bool operator==(const Statement&) const;
