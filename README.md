@@ -21,7 +21,11 @@ cmake ..
 make
 ```
 
-There are then three different ways to execute the compiled program.
+After, to execute, do this command in the terminal.
+
+```console
+./LogicCalculator
+```
 
 ## About
 

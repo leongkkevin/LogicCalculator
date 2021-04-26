@@ -12,10 +12,6 @@ Functions::Functions() {
     statements = new map<Statement, vector<int>*>();
 }
 
-void Functions::readFile(string& fileName) {
-    ifstream file(fileName);
-}
-
 string Functions::getComplex(vector<string> &complexStats, vector<char> &charVect, int index){
     string returnStatement;
     for(int i = index; i < charVect.size(); ++i){
@@ -65,86 +61,6 @@ int Functions::parse2(map<Statement, vector<int>*> &statementMap, string& line){
 }
 
 /*
- * Iterative version of the parseStatement function, only goes up to "complex statements", i.e. "(a^b)->(cvd)"
- * An idea for the recursive version is some way to generalize the isChar and isSimple functions, maybe just using
- * length, or always parsing for certain characters in any statement that should be skipped over. 
- */
-vector<string> Functions::parseStatement(string& line) {
-    vector<string> statements;
-
-    // loop through a single line and push back individual characters
-    for (int i = 0; i < line.size(); i++) {
-        // grab a character or statement
-        char* temp = new char[10];
-        temp[0] = line[i];
-        if (line[i] == '-') {
-            i++;
-            temp[1] = line[i];
-        }
-        else if (line[i] == '=') {
-            i++;
-            temp[1] = line[i];
-        }
-        else if (line[i] == ' ') {
-            continue;
-        }
-
-        statements.push_back(temp);
-    }
-
-    // index of the start of the simple statements
-    int simpleStatementIndex = statements.size();
-
-    // push back simple 2-variable statements that include the "->", "^", and "v" operator
-    for(int i = 0; i < simpleStatementIndex; ++i){
-        if(statements[i] == "->" || statements[i] == "^" || statements[i] == "v") {
-            // only add simple statements if both sides of the operator are variables
-            if (isChar(statements[i - 1]) && isChar(statements[i + 1])) {
-                string newStatement;
-                newStatement = statements[i - 1] + statements[i] + statements[i + 1];
-                statements.push_back(newStatement);
-            }
-            else
-                statements.push_back(statements[i]);
-        }
-    }
-
-    // index of the start of the complex statements
-    int complexStatementIndex = statements.size();
-
-    // push back compound statements of things in parentheses joined by the "->", "^", and "v" operator
-    for (int i = simpleStatementIndex; i < statements.size(); i++) {
-        if(statements[i] == "->" || statements[i] == "^" || statements[i] == "v") {
-            // only add complex statements if both sides of the operator are simple statements
-            if (isSimple(statements[i - 1]) && isSimple(statements[i + 1])) {
-                string newStatement;
-                newStatement = "(" + statements[i - 1] + ")" + statements[i] + "(" + statements[i + 1] + ")";
-                statements.push_back(newStatement);
-            }
-            else
-                statements.push_back(statements[i]);
-        }
-    }
-
-    // remove insignificant characters
-    for (int i = 0; i < simpleStatementIndex; i++)
-        if ((statements[i].size() == 1 || statements[i].size() == 2) && !isChar(statements[i])) {
-            statements.erase(statements.begin() + i);
-            i--;
-        }
-
-    return statements;
-}
-
-bool Functions::isChar(string thing) {
-    return (thing.size() < 2 && thing[0] >= 97 && thing[0] <= 122 && thing[0] != 'v');
-}
-
-bool Functions::isSimple(string thing) {
-    return (thing.size() > 2 && thing.size() < 5);
-}
-
-/*
  * Makes a table given the number of simple variables and the class map of statements
  */
 void Functions::makeTable(int numVars) {
@@ -185,14 +101,14 @@ void Functions::makeTable(int numVars) {
                             joiner = statement.getName().substr(smallerStatementLength + 1, 2);
                             index++;
                         }
-                        cout << "First: " << smallerStatement << endl;
-                        cout << "Joiner: " << joiner << endl;
+                        //cout << "First: " << smallerStatement << endl;
+                        //cout << "Joiner: " << joiner << endl;
                         gotFirst = true;
                         itr2 = statements->begin();
                     }
                     else if (gotFirst && !gotSecond && smallerStatement == testString) {
                         secondStatement = itr2->second;
-                        cout << "Second: " << smallerStatement << endl;
+                        //cout << "Second: " << smallerStatement << endl;
                         gotSecond = true;
                         break;
                     }
@@ -204,23 +120,23 @@ void Functions::makeTable(int numVars) {
             }
 
             for (int i = 0; i < firstStatement->size(); i++) {
-                cout << firstStatement->at(i) << " " << secondStatement->at(i);
+                //cout << firstStatement->at(i) << " " << secondStatement->at(i);
                 if (joiner == "^") {
                     itr.second->push_back((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0);
-                    cout << " " << ((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0) << endl;
+                    //cout << " " << ((firstStatement->at(i) && secondStatement->at(i)) ? 1 : 0) << endl;
                 }
                 else if (joiner == "v") {
                     itr.second->push_back((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0);
-                    cout << " " << ((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0) << endl;
+                    //cout << " " << ((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0) << endl;
                 }
                 else if (joiner == "->") {
                     itr.second->push_back((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0);
-                    cout << " " << ((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0) << endl;
+                    //cout << " " << ((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0) << endl;
                 }
             }
         }
     }
-    printTable();
+    //printTable();
 }
 
 /*
