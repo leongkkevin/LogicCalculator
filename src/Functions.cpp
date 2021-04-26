@@ -155,11 +155,47 @@ void Functions::makeTable(int numVars) {
         else {
             // handle for the complex statements here
             Statement statement = itr.first;
-            vector<string> *pieces = statement.getStatement();
 
-            vector<int>* firstStatement = statements->at(pieces->at(0));
-            string joiner = pieces->at(1);
-            vector<int>* secondStatement = statements->at(pieces->at(2));
+            vector<int>* firstStatement;
+            string joiner;
+            vector<int>* secondStatement;
+            bool gotFirst = false;
+            bool gotSecond = false;
+            cout << gotFirst << endl;
+            for (auto itr2 = statements->begin(); itr2 != statements->end();) {
+                string smallerStatement = itr2->first.getName();
+                if (strlen(smallerStatement.c_str()) > 3) {
+                    smallerStatement = "[" + itr2->first.getName() + "]";
+                }
+                string biggerStatement = statement.getName();
+                double statementLength = strlen(biggerStatement.c_str());
+                int smallerStatementLength = strlen(smallerStatement.c_str());
+                if (statementLength/smallerStatementLength > 2) {
+                    string testString = statement.getName().substr(smallerStatementLength + 3, statementLength - smallerStatementLength - 3);
+                    if (joiner == "->")
+                        testString = statement.getName().substr(smallerStatementLength + 4, statementLength - smallerStatementLength - 4);
+                    if (!gotFirst && smallerStatement == statement.getName().substr(0, smallerStatementLength)) {
+                        firstStatement = itr2->second;
+                        joiner = statement.getName().substr(smallerStatementLength + 1, 1);
+                        if (joiner == "-")
+                            joiner = statement.getName().substr(smallerStatementLength + 1, 2);
+                        cout << "First: " << smallerStatement << endl;
+                        cout << "Joiner: " << joiner << endl;
+                        gotFirst = true;
+                        itr2 = statements->begin();
+                    }
+                    else if (gotFirst && !gotSecond && smallerStatement == testString) {
+                        secondStatement = itr2->second;
+                        cout << "Second: " << smallerStatement << endl;
+                        gotSecond = true;
+                        break;
+                    }
+                    else
+                        itr2++;
+                }
+                else
+                    itr2++;
+            }
 
             for (int i = 0; i < firstStatement->size(); i++) {
                 if (joiner == "^")
@@ -167,7 +203,7 @@ void Functions::makeTable(int numVars) {
                 else if (joiner == "v")
                     itr.second->push_back((firstStatement->at(i) || secondStatement->at(i)) ? 1 : 0);
                 else if (joiner == "->")
-                    itr.second->push_back((!firstStatement->at(i) || firstStatement->at(i) == secondStatement->at(i)) ? 1 : 0);
+                    itr.second->push_back((!firstStatement->at(i) || (firstStatement->at(i) && secondStatement->at(i))) ? 1 : 0);
             }
         }
     }

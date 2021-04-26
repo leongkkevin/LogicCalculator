@@ -14,7 +14,7 @@ int main(int argc, char** argv){
     Functions* f = new Functions();
     string statement = "((a ^ c) -> (a -> b)) ^ ((c v d) -> (a v d)) -> (a -> c)";
     vector<string> statement2;
-    map<Statement, vector<int>> statementMap;
+    map<Statement, vector<int>*> statementMap;
     f->parse2(statementMap, statement);
 
     /*
@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 
     //for (int i = 0; i < statements.size(); i++)
     //    cout << statements.at(i) << endl;
-
+    /*
     map<Statement, vector<int>*>* thing = new map<Statement, vector<int>*>();
     Statement one("a");
     one.addStatement("a");
@@ -62,6 +62,7 @@ int main(int argc, char** argv){
     thing->insert(pair<Statement, vector<int>*>(four, temp4));
 
     f->addStatements(thing);
+    */
     f->makeTable(4);
 }
 
