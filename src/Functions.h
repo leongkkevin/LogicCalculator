@@ -30,7 +30,7 @@ void addStatements(map<Statement, vector<int>*>*);
 
 void readFile(string&);
 
-void parse2(map<Statement, vector<int>*> &statementMap, string& line);
+int parse2(map<Statement, vector<int>*> &statementMap, string& line);
 
 string getComplex(vector<string>&, vector<char>&, int);
 

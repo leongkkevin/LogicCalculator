@@ -15,7 +15,7 @@ int main(int argc, char** argv){
     string statement = "(((a ^ c) -> (a -> b)) ^ ((c v d) -> (a v d))) -> (a -> c)";
     vector<string> statement2;
     map<Statement, vector<int>*> statementMap;
-    f->parse2(statementMap, statement);
-    f->makeTable(4);
+    int numVariables = f->parse2(statementMap, statement);
+    f->makeTable(numVariables);
 }
 
