@@ -54,12 +54,11 @@ public:
 
     /**
      * Gets the longer, complex mini statements in the long statement using recursion and a stack
-     * Returns a string (the complex statment)
+     * Returns a string (the complex statement)
      */
     string getComplex(vector<string>&, vector<char>&, int);
 
     /**
-     *
      * Prints the contents of the statementMap onto a .csv file
      * Found in artifacts folder
      */
