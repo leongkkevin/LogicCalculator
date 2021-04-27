@@ -56,4 +56,19 @@ Without them, they are just piles of silicon and glass.
 In our project, we break down these logical rules and show the behind the scenes that connect these complex symbols with
 ones and zeroes. 
 
-What is important about this project is its step-by-step method of parsing and understanding the 
+What is important about this project is its step-by-step method of parsing and understanding each logical statement. 
+This is helpful for several real-world applications. 
+One of which is in computer engineering, where the building of a computer relies on the outstanding reasoning of logical chips.
+Connecting the inputs of the chips (much like connecting each of these statements) can create extremely complex mathematical systems.
+
+
+## Example
+Take for example this input:
+```console
+(((a ^ c) -> (a -> b)) ^ ((c ^ d) -> (a -> d))) -> (a -> c)
+```
+
+The produced output in output.csv is like this:
+![](artifacts/SampleOutput.png)
+
+Each row is a specific breakdown of the statement starting from the singular characters to the final full-length statement.
