@@ -19,29 +19,51 @@ class Functions {
 private:
     map<Statement, vector<int>*>* statements;
 public:
-Functions();
+    /**
+     * Constructor for function class
+     * Creates the statements map
+     */
+    Functions();
 
-void makeTable(int);
+    /**
+     * Makes a table given the number of simple variables and the class map of statements
+     */
+    void makeTable(int);
 
-void makeChars(vector<int>*, int, int);
+    /**
+     * This method is called if a Statement in the map consists of a single character.
+     */
+    void makeChars(vector<int>*, int, int);
 
-void printTable();
+    /**
+     * Prints the contents of the table onto the terminal
+     */
+    void printTable();
 
-void addStatements(map<Statement, vector<int>*>*);
+    /**
+     * Assigns a map<Statement, vector<int>*> to the object
+     */
+    void addStatements(map<Statement, vector<int>*>*);
 
-void readFile(string&);
+    /**
+     * Parses the terminal inquiry using recursion and a stack
+     * Adds to the statementMap
+     * Returns the amount of single, unique, character variables in the statement
+     */
+    int parse(map<Statement, vector<int>*> &statementMap, string& line);
 
-int parse2(map<Statement, vector<int>*> &statementMap, string& line);
+    /**
+     * Gets the longer, complex mini statements in the long statement using recursion and a stack
+     * Returns a string (the complex statment)
+     */
+    string getComplex(vector<string>&, vector<char>&, int);
 
-string getComplex(vector<string>&, vector<char>&, int);
-
-vector<string> parseStatement(string&);
-
-bool isChar(string);
-
-bool isSimple(string);
-
-void outputFile(map<Statement, vector<int>*> &statementMap, ofstream &output);
+    /**
+     *
+     * Prints the contents of the statementMap onto a .csv file
+     * Found in artifacts folder
+     */
+    void outputFile(map<Statement, vector<int>*> &statementMap, ofstream &output);
 };
 
 #endif //LOGICCALCULATOR_FUNCTIONS_H

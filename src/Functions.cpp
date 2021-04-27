@@ -32,7 +32,7 @@ string Functions::getComplex(vector<string> &complexStats, vector<char> &charVec
     return returnStatement;
 }
 
-int Functions::parse2(map<Statement, vector<int>*> &statementMap, string& line){
+int Functions::parse(map<Statement, vector<int>*> &statementMap, string& line){
     set<char> simple;
     vector<char> allChar;
     for(int i = 0; i < line.size(); ++i){

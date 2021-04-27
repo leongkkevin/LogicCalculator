@@ -20,7 +20,7 @@ int main(int argc, char** argv){
     getline(cin, statement);
     vector<string> statement2;
     map<Statement, vector<int>*> statementMap;
-    int numVariables = f->parse2(statementMap, statement);
+    int numVariables = f->parse(statementMap, statement);
     f->makeTable(numVariables);
 
     ofstream outstream;
