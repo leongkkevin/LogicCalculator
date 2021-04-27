@@ -90,4 +90,4 @@ The produced output in output.csv is like this:
 ![](artifacts/SampleOutput.png)
 
 Each row is a specific breakdown of the statement starting from the singular characters to the final full-length statement.
-A 1 represents Truth and a 0 represents False.
+In this table, a '1' represents True (on bit) and a '0' represents False (off bit).
