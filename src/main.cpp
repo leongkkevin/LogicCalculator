@@ -29,5 +29,7 @@ int main(int argc, char** argv){
     outstream.close();
 
     cout << "The output has been saved in the output.csv file in the artifacts folder. Thank you!" << endl;
+
+    return 0;
 }
 
