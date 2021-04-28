@@ -40,6 +40,8 @@ Use extra paranthesis to explicity show each statement.
 (((a ^ c) -> (a -> b)) ^ ((c ^ d) -> (a -> d))) -> (a -> c)
 ```
 
+Please add a space in between each variable and operation symbol.
+
 For the union operator, use a 'v' symbol. 
 
 For the intersection operator, use a '^' symbol.

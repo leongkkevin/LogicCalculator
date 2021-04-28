@@ -13,11 +13,13 @@ int main(int argc, char** argv){
 
     //TEST statement: (((a ^ c) -> (a -> b)) ^ ((c ^ d) -> (a -> d))) -> (a -> c)
     cout << "Hello! Welcome to the ALMIGHTY TRUTH TABLE GENERATOR!" << endl;
+    cout << "\t Brought to you by Kevin Leong and Zachary Suzuki" << endl;
     cout << "Type any logical statement and find a perfectly crafted truth table in the artifacts folder (output.csv)." << endl;
     cout << "NOTE: Use of parentheses is extremely important for this generator. Please refer to the README file for more information. \n" << endl;
     cout << "Please put a logical statement below: " << endl;
     string statement;
     getline(cin, statement);
+
     vector<string> statement2;
     map<Statement, vector<int>*> statementMap;
     int numVariables = f->parse(statementMap, statement);

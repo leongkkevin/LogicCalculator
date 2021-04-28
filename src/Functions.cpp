@@ -178,6 +178,13 @@ void Functions::addStatements(map<Statement, vector<int>*>* statements) {
 }
 
 void Functions::outputFile(map<Statement, vector<int> *> &statementMap, ofstream &output) {
+    auto checkItr = statementMap.begin();
+    while(checkItr != statementMap.end()){
+        if(checkItr->second->empty()){
+            statementMap.erase(checkItr);
+        }
+        ++checkItr;
+    }
     auto itr = statementMap.begin();
     while(itr != statementMap.end()){
         output << itr->first.getName() << ",";
